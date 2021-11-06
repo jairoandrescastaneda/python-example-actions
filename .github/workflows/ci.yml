@@ -1,0 +1,14 @@
+name: Test
+on: push
+
+
+jobs:
+  test_project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: abatilo/actions-poetry@v2.0.0
+      - name: Run test
+        run: |
+          poetry run pytest test/ -v
